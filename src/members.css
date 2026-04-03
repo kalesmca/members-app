@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap');
+
+:root {
+  --brand:      #2563eb;
+  --brand-dark: #1d4ed8;
+  --accent:     #f59e0b;
+  --surface:    #ffffff;
+  --muted:      #64748b;
+  --border:     #e2e8f0;
+  --danger:     #ef4444;
+  --row-hover:  #f8fafc;
+}
+
+/* ── Layout ── */
+.page-wrapper {
+  min-height: 100vh;
+  background: #f0f4f8;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Navbar ── */
+.navbar-custom {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+}
+.brand-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #fff;
+  font-size: 1.3rem;
+}
+.brand-dot {
+  color: var(--accent);
+}
+.nav-link-custom {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.9rem;
+}
+
+/* ── Card Shell ── */
+.card-shell {
+  background: var(--surface);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(37, 99, 235, 0.06);
+  overflow: hidden;
+}
+
+/* ── Card Header Bar ── */
+.card-header-bar {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #1e293b;
+  margin: 0;
+}
+.badge-count {
+  background: var(--brand) !important;
+  font-size: 0.75rem;
+  padding: 0.3em 0.6em;
+  border-radius: 8px;
+}
+
+/* ── Search ── */
+.search-input {
+  border-radius: 10px !important;
+  border: 1.5px solid var(--border) !important;
+  font-size: 0.88rem;
+  padding: 0.45rem 0.9rem;
+  max-width: 240px;
+  transition: border 0.2s;
+}
+.search-input:focus {
+  border-color: var(--brand) !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12) !important;
+  outline: none;
+}
+
+/* ── Add Button ── */
+.btn-add {
+  background: var(--brand) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  padding: 0.45rem 1.1rem !important;
+  display: flex !important;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3) !important;
+}
+.btn-add:hover {
+  background: var(--brand-dark) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* ── Table ── */
+.member-table {
+  margin: 0;
+}
+.member-table thead th {
+  background: #f1f5f9;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.85rem 1.25rem;
+  border: none;
+}
+.member-table tbody td {
+  padding: 0.9rem 1.25rem;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: #334155;
+}
+.member-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.member-table tbody tr:hover td {
+  background: var(--row-hover);
+}
+
+/* ── Avatar ── */
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.65rem;
+  flex-shrink: 0;
+}
+.name-cell {
+  display: flex;
+  align-items: center;
+}
+
+/* ── Action Buttons ── */
+.btn-icon {
+  border: none;
+  border-radius: 8px;
+  padding: 0.3rem 0.55rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.15s, transform 0.1s;
+  cursor: pointer;
+}
+.btn-edit {
+  background: #eff6ff;
+  color: var(--brand);
+}
+.btn-edit:hover {
+  background: #dbeafe;
+  transform: scale(1.05);
+}
+.btn-delete {
+  background: #fff1f2;
+  color: var(--danger);
+}
+.btn-delete:hover {
+  background: #fee2e2;
+  transform: scale(1.05);
+}
+
+/* ── Empty State ── */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.4;
+}
+
+/* ── Modal ── */
+.modal-content {
+  border-radius: 16px !important;
+  border: none !important;
+  overflow: hidden;
+}
+.modal-header-custom {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  padding: 1.2rem 1.5rem;
+  border: none;
+}
+.modal-title-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  color: #fff;
+  font-size: 1.05rem;
+}
+.modal-close-btn {
+  filter: invert(1) brightness(2);
+  opacity: 0.8;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* ── Form ── */
+.form-label-custom {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 0.35rem;
+}
+.form-control-custom {
+  border-radius: 10px !important;
+  border: 1.5px solid var(--border) !important;
+  font-size: 0.9rem !important;
+  padding: 0.55rem 0.9rem !important;
+  transition: border 0.2s, box-shadow 0.2s !important;
+}
+.form-control-custom:focus {
+  border-color: var(--brand) !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12) !important;
+}
+.input-icon {
+  background: #f8fafc !important;
+  border-right: none !important;
+  border-radius: 10px 0 0 10px !important;
+  color: var(--muted);
+  border: 1.5px solid var(--border) !important;
+}
+.input-no-left-border {
+  border-left: none !important;
+  border-radius: 0 10px 10px 0 !important;
+}
+
+/* ── Submit Button ── */
+.btn-submit {
+  background: var(--brand) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  padding: 0.55rem 1.4rem !important;
+  transition: background 0.2s, transform 0.15s !important;
+}
+.btn-submit:hover {
+  background: var(--brand-dark) !important;
+  transform: translateY(-1px);
+}
+
+/* ── Delete Confirm ── */
+.btn-danger-confirm {
+  background: var(--danger) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  font-size: 0.88rem !important;
+}
+
+/* ── Responsive ── */
+@media (max-width: 576px) {
+  .card-header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .search-input {
+    max-width: 100%;
+    width: 100%;
+  }
+}

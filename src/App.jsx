@@ -60,7 +60,7 @@ export default function App() {
   const openEdit = (member) => {
     setForm({ name: member.name, mobile: member.mobile, email: member.email });
     setErrors({});
-    setEditId(member.id);
+    setEditId(member.member_id);
     setShowForm(true);
   };
 
@@ -70,26 +70,52 @@ export default function App() {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const updateList =() =>{
-
-  }
-  const handleFormSubmit = () => {
-    const errs = validate(form);
-    if (Object.keys(errs).length) { setErrors(errs); return; }
-
+  const updateForm = () => {
     if (editId !== null) {
-      setMembers((prev) =>
-        prev.map((m) => (m.id === editId ? { ...m, ...form } : m))
-      );
-    } else {
-      setMembers((prev) => [...prev, { id: Date.now(), ...form }]);
+      fetch("http://localhost:8080/members/" + editId, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(form),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("updated data =", data);
+          setMembers((prev) =>
+            prev.map((m) => (m.id === editId ? { ...m, ...form } : m)),
+          );
+        });
     }
     setShowForm(false);
   };
+  const handleFormSubmit = () => {
+    const errs = validate(form);
+    if (Object.keys(errs).length) {
+      setErrors(errs);
+      return;
+    }
 
-  const updateForm =() =>{
-
-  }
+    if (editId !== null) {
+      setMembers((prev) =>
+        prev.map((m) => (m.id === editId ? { ...m, ...form } : m)),
+      );
+    } else {
+      fetch("http://localhost:8080/members", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("full list = ", data);
+          setMembers(data)
+        });
+    }
+    setShowForm(false);
+  };
 
   // ── Delete modal ──
   const openDeleteConfirm = (id) => {
